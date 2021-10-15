@@ -24,29 +24,29 @@ public class DataHelper {
         private String cvc;
     }
 
-    public static PaymentInfo usingApprovedCard (int plusMonth) {
-        return new PaymentInfo(approvedCard, expiryMonth(plusMonth), expiryYear(plusMonth),
+    public static PaymentInfo usingApprovedCard (int MonthsToAdd) {
+        return new PaymentInfo(approvedCard, expiryMonth(MonthsToAdd), expiryYear(MonthsToAdd),
                 getRandomName(), getRandomCVC());
     }
 
-    public static PaymentInfo usingDeclinedCard(int plusMonth) {
-        return new PaymentInfo(declinedCard, expiryMonth(plusMonth), expiryYear(plusMonth),
+    public static PaymentInfo usingDeclinedCard(int MonthsToAdd) {
+        return new PaymentInfo(declinedCard, expiryMonth(MonthsToAdd), expiryYear(MonthsToAdd),
                 getRandomName(), getRandomCVC());
     }
 
-    public static LocalDate expiryDate(int plusMonth) {
-        var expiryDate = LocalDate.now().plusMonths(plusMonth);
+    public static LocalDate expiryDate(int MonthsToAdd) {
+        var expiryDate = LocalDate.now().plusMonths(MonthsToAdd);
         return expiryDate;
     }
 
-    public static String expiryYear(int plusMonth) {
+    public static String expiryYear(int MonthsToAdd) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy");
-        var year = expiryDate(plusMonth).format(formatter);
+        var year = expiryDate(MonthsToAdd).format(formatter);
         return year;
     }
 
-    public static String expiryMonth(int plusMonths) {
-        var month = expiryDate(plusMonths).getMonthValue();
+    public static String expiryMonth(int MonthsToAdd) {
+        var month = expiryDate(MonthsToAdd).getMonthValue();
         if (month < 10) {
             String monthFormat= "0" + Integer.toString(month);
             return monthFormat;
@@ -56,8 +56,8 @@ public class DataHelper {
 
     public static int randomPlusMonths() {
         Random random = new Random();
-        int plusMonth = random.nextInt(60);
-        return plusMonth;
+        int MonthsToAdd = random.nextInt(60);
+        return MonthsToAdd;
     }
 
     public static String getRandomName(){
@@ -71,13 +71,19 @@ public class DataHelper {
     }
 
     public static String getRandomLatinSymbols() {
-        String cyrillicSymbols = fakerEn.bothify("??????????????????");
+        String cyrillicSymbols = fakerEn.bothify("?????????");
         return cyrillicSymbols;
     }
 
     public static String getRandomCyrillicSymbols() {
         Faker fakerRu = new Faker(new Locale("ru"));
         String cyrillicSymbols = fakerRu.name().firstName();
+        return cyrillicSymbols;
+    }
+
+    public static String getRandomCyrillicFullName() {
+        Faker fakerRu = new Faker(new Locale("ru"));
+        String cyrillicSymbols = fakerRu.name().fullName();
         return cyrillicSymbols;
     }
 }
