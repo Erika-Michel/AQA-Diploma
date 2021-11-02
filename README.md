@@ -1,7 +1,10 @@
 # Проект автоматизации тестирования [сервиса] по покупке туров aqa-shop.jar
 [сервиса]: https://github.com/netology-code/qa-diploma
 
-На локальной машине должен быть предварительно установлен Docker и скачаны образы MySQL и Postgres.
+На локальной машине должен быть предварительно установлен [Docker] и скачаны образы [MySQL] и [Postgres].
+[Docker]: https://www.docker.com/
+[MySQL]: https://hub.docker.com/_/mysql
+[Postgres]: https://hub.docker.com/_/postgres
 
 По умолчанию проект настроен на подключение к MySQL, для подключения к Postgres необходимо в файле application.properties закомментировать строку 3 при помощи # и активировать строку 4, удалив #
 
