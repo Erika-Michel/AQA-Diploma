@@ -1,6 +1,5 @@
 package ru.netology.page;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Data;
 
@@ -8,6 +7,7 @@ import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+
 
 @Data
 public class PurchasePage {
@@ -17,17 +17,18 @@ public class PurchasePage {
     private SelenideElement paymentButton = $(byText("Купить"));
     private SelenideElement creditButton = $(byText("Купить в кредит"));
 
+
     public PurchasePage() {
         heading.shouldBe(visible).shouldHave(exactText("Путешествие дня"));
         tourInfo.shouldBe(visible);
     }
 
-    public PaymentPage payWithCard(){
+    public PaymentPage payWithCard() {
         paymentButton.click();
         return new PaymentPage();
     }
 
-    public CreditPage payWithCredit(){
+    public CreditPage payWithCredit() {
         creditButton.click();
         return new CreditPage();
     }

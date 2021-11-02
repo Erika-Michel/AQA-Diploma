@@ -11,6 +11,7 @@ import java.util.Random;
 public class DataHelper {
     private DataHelper() {
     }
+
     private static final String approvedCard = "4444 4444 4444 4441";
     private static final String declinedCard = "4444 4444 4444 4442";
     private static final Faker fakerEn = new Faker(new Locale("en-US"));
@@ -24,7 +25,7 @@ public class DataHelper {
         private String cvc;
     }
 
-    public static PaymentInfo usingApprovedCard (int MonthsToAdd) {
+    public static PaymentInfo usingApprovedCard(int MonthsToAdd) {
         return new PaymentInfo(approvedCard, expiryMonth(MonthsToAdd), expiryYear(MonthsToAdd),
                 getRandomName(), getRandomCVC());
     }
@@ -48,7 +49,7 @@ public class DataHelper {
     public static String expiryMonth(int MonthsToAdd) {
         var month = expiryDate(MonthsToAdd).getMonthValue();
         if (month < 10) {
-            String monthFormat= "0" + Integer.toString(month);
+            String monthFormat = "0" + Integer.toString(month);
             return monthFormat;
         }
         return Integer.toString(month);
@@ -60,7 +61,7 @@ public class DataHelper {
         return MonthsToAdd;
     }
 
-    public static String getRandomName(){
+    public static String getRandomName() {
         String name = fakerEn.name().fullName();
         return name;
     }

@@ -1,13 +1,32 @@
-#version: '3.7'
-#services:
-#  db:
-#    image: postgres:12-alpine
-#    ports:
-#      - '5432:5432'
-#    volumes:
-#      - ./data:/var/lib/postgres
-#    environment:
-#      - POSTGRES_DB=database
-#      - POSTGRES_USER=user
-#      - POSTGRES_PASSWORD=pass
-# todo настроить под SUT, поискать инфу, нужен ли второй файл для второй СУБД или в одном
+version: '3.7'
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - '3306:3306'
+    restart: always
+    volumes:
+      - ./data_sql:/var/lib/mysql
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+
+  postgres:
+    image: postgres:12-alpine
+    ports:
+      - '5432:5432'
+    restart: always
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+
+  gate-simulator:
+    build: ./gate-simulator
+    image: gate-simulator
+    ports:
+      - '9999:9999'

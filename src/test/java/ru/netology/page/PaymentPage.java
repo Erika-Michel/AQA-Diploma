@@ -8,8 +8,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static org.openqa.selenium.Keys.CONTROL;
-import static org.openqa.selenium.Keys.DELETE;
+
 
 @Data
 public class PaymentPage {
@@ -23,8 +22,8 @@ public class PaymentPage {
     private SelenideElement continueButton = $(byText("Продолжить"));
     private SelenideElement successNotification = $(".notification_status_ok");
     private SelenideElement errorNotification = $(".notification_status_error");
-    private SelenideElement inputInvalid = $(".input__sub"); //убрала точку перед инпут везде выше
-//    private SelenideElement anyNotification = $(".notification");
+    private SelenideElement inputInvalid = $(".input__sub");
+    private SelenideElement anyNotification = $(".notification");
 
     public PaymentPage() {
         heading.shouldBe(visible).shouldHave(exactText("Оплата по карте"));
@@ -35,16 +34,7 @@ public class PaymentPage {
         return new CreditPage();
     }
 
-    private void clearForm() {
-        cardNumberField.sendKeys(CONTROL + "A", DELETE);
-        monthField.sendKeys(CONTROL + "A", DELETE);
-        yearField.sendKeys(CONTROL + "A", DELETE);
-        cardHolderField.sendKeys(CONTROL + "A", DELETE);
-        cvcNumberField.sendKeys(CONTROL + "A", DELETE);
-    }
-
     public void fillDataAndSubmit(String card, String month, String year, String name, String cvc) {
-//        clearForm();
         cardNumberField.setValue(card);
         monthField.setValue(month);
         yearField.setValue(year);
@@ -66,7 +56,6 @@ public class PaymentPage {
     }
 
     public void sendEmptyForm() {
-//        clearForm();
         continueButton.click();
         inputInvalid.shouldBe(visible);
     }
@@ -75,8 +64,7 @@ public class PaymentPage {
         inputInvalid.shouldBe(visible);
     }
 
-//    public void anyNotification() {
-//        anyNotification.shouldBe(visible, Duration.ofSeconds(10));
-//    }
-
+    public void anyNotification() {
+        anyNotification.shouldBe(visible, Duration.ofSeconds(10));
+    }
 }

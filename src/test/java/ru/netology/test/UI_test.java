@@ -1,8 +1,8 @@
 package ru.netology.test;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.*;
 import ru.netology.data.DataHelper;
 import ru.netology.page.PurchasePage;
 
@@ -10,13 +10,23 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class UI_test {
 
-
     PurchasePage purchasePage;
+
+    @BeforeAll
+    static void allureSetup() {
+        SelenideLogger.addListener("allure", new AllureSelenide().
+                screenshots(true).savePageSource(false));
+    }
 
     @BeforeEach
     void setup() {
         open("http://localhost:8080");
         purchasePage = new PurchasePage();
+    }
+
+    @AfterAll
+    static void tearDownAllure() {
+        SelenideLogger.removeListener("allure");
     }
 
     @Test
