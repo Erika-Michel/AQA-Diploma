@@ -61,7 +61,6 @@ public class UI_test {
                 approvedPayment.getYear(), approvedPayment.getCardHolder(), approvedPayment.getCvc());
     }
 
-    //падает, баг
     @Test
     @DisplayName("Should show error when paying with Declined card")
     void shouldFillFormAndPayWithDeclinedCard() {
@@ -71,7 +70,6 @@ public class UI_test {
                 declinedPayment.getYear(), declinedPayment.getCardHolder(), declinedPayment.getCvc());
     }
 
-    //падает, баг
     @Test
     @DisplayName("Should show error when requesting credit with Declined card")
     void shouldFillFormAndRequestCreditWithDeclinedCard() {
@@ -81,7 +79,6 @@ public class UI_test {
                 declinedPayment.getYear(), declinedPayment.getCardHolder(), declinedPayment.getCvc());
     }
 
-    //падает, баг
     @Test
     @DisplayName("Should show error when paying with Approved card, expiry in 61 months")
     void shouldFillFormAndPayWithApprovedCardExpiryOver5Years() {
@@ -92,7 +89,6 @@ public class UI_test {
         paymentPage.inputInvalidError();
     }
 
-    //падает, баг
     @Test
     @DisplayName("Should show error when requesting credit with Approved card, expiry in 61 months")
     void shouldFillFormAndRequestCreditWithApprovedCardExpiryOver5Years() {
@@ -211,7 +207,6 @@ public class UI_test {
         paymentPage.inputInvalidError();
     }
 
-    //падает, баг
     @Test
     @DisplayName("Should show error when requesting credit with Approved card, 00. month")
     void shouldFillFormAndRequestCreditWithApprovedCard00Month() {
@@ -552,7 +547,6 @@ public class UI_test {
         creditPage.inputInvalidError();
     }
 
-    //Падает, баг
     @Test
     @DisplayName("Should not submit payment with Cyrillic in Card Holder")
     void shouldNotSubmitPaymentWithCyrillicInCardHolder() {
@@ -563,7 +557,6 @@ public class UI_test {
         paymentPage.inputInvalidError();
     }
 
-    //Падает, баг
     @Test
     @DisplayName("Should not submit credit with Cyrillic in Card Holder")
     void shouldNotSubmitCreditWithCyrillicInCardHolder() {
@@ -574,7 +567,6 @@ public class UI_test {
         creditPage.inputInvalidError();
     }
 
-    //Падает, баг
     @Test
     @DisplayName("Should not submit payment with Numbers in Card Holder")
     void shouldNotSubmitPaymentWithNumbersInCardHolder() {
@@ -585,7 +577,6 @@ public class UI_test {
         paymentPage.inputInvalidError();
     }
 
-    //Падает, баг
     @Test
     @DisplayName("Should not submit credit with Numbers in Card Holder")
     void shouldNotSubmitCreditWithNumbersInCardHolder() {
@@ -596,7 +587,6 @@ public class UI_test {
         creditPage.inputInvalidError();
     }
 
-    //Падает, баг
     @Test
     @DisplayName("Should not submit payment with Symbols in Card Holder")
     void shouldNotSubmitPaymentWithSymbolsInCardHolder() {
@@ -607,7 +597,6 @@ public class UI_test {
         paymentPage.inputInvalidError();
     }
 
-    //Падает, баг
     @Test
     @DisplayName("Should not submit credit with Symbols in Card Holder")
     void shouldNotSubmitCreditWithSymbolsInCardHolder() {
