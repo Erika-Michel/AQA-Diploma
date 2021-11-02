@@ -1,5 +1,5 @@
 # Проект автоматизации тестирования [сервиса] по покупке туров aqa-shop.jar
-[1]: https://github.com/netology-code/qa-diploma
+[сервиса]: https://github.com/netology-code/qa-diploma
 
 На локальной машине должен быть предварительно установлен Docker и скачаны образы MySQL и Postgres.
 
