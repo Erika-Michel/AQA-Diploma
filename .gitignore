@@ -6,6 +6,7 @@ build/
 data_sql/
 postgres-data/
 sql/
+data/
 
 ### STS ###
 .apt_generated
