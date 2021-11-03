@@ -8,11 +8,9 @@ MySQL и PostgreSQL.
 В итоге было выполнено **72 тест-кейса**, включающих позитивные и негативные сценарии использования web-сервиса.
 
 Из 72 тестов 58 пройдены **успешно** (**80,55%** от общего количества), 12 завершились с ошибкой.
+![Allure Report - Google Chrome 2021-11-03 18 48 22](https://user-images.githubusercontent.com/83554430/140166556-a5ddc103-3137-4a01-a46c-afb8afff8c8d.png)
 
-![](../../../../../../Allure Report - Google Chrome 2021-11-03 18.48.22.png)
-
-На основе выявленных ошибок были заведены баг-репорты в [Issues].
-[Issues]: https://github.com/Erika-Michel/AQA-Diploma/issues
+На основе выявленных ошибок были заведены баг-репорты в **[Issues](https://github.com/Erika-Michel/AQA-Diploma/issues)**.
 
 **Общие рекомендации:**
 
