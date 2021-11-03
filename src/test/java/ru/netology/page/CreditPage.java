@@ -46,13 +46,13 @@ public class CreditPage {
 
     public void successfulCredit(String card, String month, String year, String name, String cvc) {
         fillCreditDataAndSubmit(card, month, year, name, cvc);
-        successNotification.shouldBe(visible, Duration.ofSeconds(10)).
+        successNotification.shouldBe(visible, Duration.ofSeconds(15)).
                 shouldHave(text("Операция одобрена Банком."));
     }
 
     public void unsuccessfulCredit(String card, String month, String year, String name, String cvc) {
         fillCreditDataAndSubmit(card, month, year, name, cvc);
-        errorNotification.shouldBe(visible, Duration.ofSeconds(10)).
+        errorNotification.shouldBe(visible, Duration.ofSeconds(15)).
                 shouldHave(text("Ошибка! Банк отказал в проведении операции."));
     }
 
@@ -66,6 +66,6 @@ public class CreditPage {
     }
 
     public void anyNotification() {
-        anyNotification.shouldBe(visible, Duration.ofSeconds(10));
+        anyNotification.shouldBe(visible, Duration.ofSeconds(15));
     }
 }
