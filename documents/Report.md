@@ -11,7 +11,7 @@ MySQL и PostgreSQL.
 
 ![](../../../../../../Allure Report - Google Chrome 2021-11-03 18.48.22.png)
 
-На основе выявленных ошибок были заведены баг-репорты в [Issues].
+На основе выявленных ошибок были заведены баг-репорты в [Issues]
 [Issues]: https://github.com/Erika-Michel/AQA-Diploma/issues
 
 **Общие рекомендации:**
