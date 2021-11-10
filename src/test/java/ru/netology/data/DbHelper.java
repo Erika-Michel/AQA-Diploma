@@ -27,7 +27,7 @@ public class DbHelper {
     public static String getValue(String request) {
         var runner = new QueryRunner();
         var value = new String();
-        try (var conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/db",
+        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db",
                 "user", "pass");) {
             var result = runner.query(conn, request, new ScalarHandler<>());
             value = String.valueOf(result);
