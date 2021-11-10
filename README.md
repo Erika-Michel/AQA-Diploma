@@ -4,9 +4,8 @@
 На локальной машине должен быть предварительно установлен **[Docker](https://www.docker.com/)** 
 и скачаны образы **[MySQL](https://hub.docker.com/_/mysql)** и **[Postgres](https://hub.docker.com/_/postgres)**.
 
-По умолчанию проект настроен на подключение к MySQL, для подключения к Postgres необходимо в файле application.properties 
-закомментировать строку 3 при помощи # и активировать строку 4, удалив #; 
-в файле DbHelper в строке 30 заменить Url на jdbc:postgresql://localhost:5432/db.
+По умолчанию проект настроен на подключение к MySQL, для подключения к Postgres необходимо в файле build.gradle 
+в строке 47 заменить Url на jdbc:postgresql://localhost:5432/db.
 
 ## Процедура запуска авто-тестов:
 * склонировать репозиторий командой **git clone**
